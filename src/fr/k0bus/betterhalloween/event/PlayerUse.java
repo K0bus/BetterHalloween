@@ -118,7 +118,6 @@ public class PlayerUse implements Listener{
 				{
 					loots = null;
 					c = Main.config.getConfigurationSection("key." + type + ".loot." + loot.getKey());
-					Main.plugin.getServer().broadcastMessage("minecraft:" + c.getString("item"));
 				}
 				break;
 			}
@@ -138,7 +137,6 @@ public class PlayerUse implements Listener{
 			for (String s : enchantList)
 			{
 				i.addUnsafeEnchantment(Enchantment.getByKey(NamespacedKey.minecraft(s)), enchantConf.getInt(s));
-				Main.plugin.getServer().broadcastMessage(s + ":" + enchantConf.getInt(s));
 			}
 		}
 		else

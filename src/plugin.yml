@@ -9,5 +9,5 @@ commands:
 permissions:
    bh.give:
       description: Give BH Items
-   bh.list:
+   bh.items:
       description: List BH Items

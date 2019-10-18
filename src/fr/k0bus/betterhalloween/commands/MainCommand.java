@@ -22,7 +22,7 @@ public class MainCommand implements CommandExecutor{
 				switch(args[0]){
 					case "items":
 						//Listing all give commands
-						if(p.hasPermission("bh.list"))
+						if(p.hasPermission("bh.items"))
 						{
 							p.sendMessage("List des give disponible : ");
 							for(GiveList gl : GiveList.values())
@@ -59,7 +59,7 @@ public class MainCommand implements CommandExecutor{
 								}
 								else
 								{
-									p.sendMessage(Main.tag + ChatColor.RED + "Item inconnus.");
+									p.sendMessage(Main.tag + ChatColor.RED + "Item inconnus. (/bh items)");
 								}
 							}
 							else
@@ -69,22 +69,22 @@ public class MainCommand implements CommandExecutor{
 						}
 						else
 						{
-							p.sendMessage(Main.tag + ChatColor.RED + "Merci de préciser un items. (/bh list)");
+							p.sendMessage(Main.tag + ChatColor.RED + "Merci de préciser un items. (/bh items)");
 						}
 						break;
 					default:
-						p.sendMessage(ChatColor.RED + "Commande introuvable !");
+						p.sendMessage(Main.tag + ChatColor.RED + "Commande introuvable !");
 						break;
 				}
 			}
 			else
 			{
-				sender.sendMessage("Merci de préciser l'objet à GIVE !");
+				sender.sendMessage(Main.tag + ChatColor.RED + "Commande introuvable !");
 			}
 		}
 		else
 		{
-			sender.sendMessage("Seul les joueurs peuvent executer cette commandes.");
+			sender.sendMessage(Main.tag + ChatColor.RED + "Seul les joueurs peuvent executer cette commandes.");
 		}
 		return true;
 	}
