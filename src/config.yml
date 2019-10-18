@@ -1,1 +1,28 @@
 tag: '&r[&cBetterHalloween&r]'
+zombie:
+  head-name: "Herobrine"
+  health: 60
+  effect:
+    invisibility:
+      status: true
+      value: 1
+    speed:
+      status: true
+      value: 4
+    fire_resistance:
+      status: true
+      value: 1
+    damage_resistance:
+      status: true
+      value: 1
+key:
+  iron:
+    name: "Clé en fer"
+    lore:
+      - "Une clé d'Herobrine pour un coffre légendaire !"
+      - "Rendez vous au spawn pour ouvrir un coffre !"
+  gold:
+    name: "Clé en or"
+    lore:
+      - "Une clé d'Herobrine pour un coffre légendaire !"
+      - "Rendez vous au spawn pour ouvrir un coffre !"

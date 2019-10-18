@@ -1,5 +1,7 @@
 package fr.k0bus.betterhalloween;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 import org.bukkit.ChatColor;
@@ -49,6 +51,27 @@ public class Main extends JavaPlugin{
 	private void setDefaultConfig()
 	{
 		Main.config.addDefault("tag", "&r[&cRandomTP&r]");
+		Main.config.addDefault("zombie.head-name", "Herobrine");
+		Main.config.addDefault("zombie.health", 60);
+		Main.config.addDefault("zombie.effect.invisibility.status", true);
+		Main.config.addDefault("zombie.effect.invisibility.value", 1);
+		Main.config.addDefault("zombie.effect.speed.status", true);
+		Main.config.addDefault("zombie.effect.speed.value", 4);
+		Main.config.addDefault("zombie.effect.fire_resistance.status", true);
+		Main.config.addDefault("zombie.effect.fire_resistance.value", 1);
+		Main.config.addDefault("zombie.effect.damage_resistance.status", false);
+		Main.config.addDefault("zombie.effect.damage_resistance.value", 1);
+		Main.config.addDefault("zombie.spawn-chance", 10);
+
+		List <String> defaultLore= new ArrayList<String>();
+		defaultLore.add("Une clé d'Herobrine pour un coffre légendaire !");
+		defaultLore.add("Rendez vous au spawn pour ouvrir un coffre !");
+		
+		Main.config.addDefault("key.iron.name", "Clé en fer");
+		Main.config.addDefault("key.iron.lore", defaultLore);
+		Main.config.addDefault("key.gold.name", "Clé en or");
+		Main.config.addDefault("key.gold.lore", defaultLore);
+		
 		Main.config.options().copyDefaults(true);
 		this.saveConfig();
 	}

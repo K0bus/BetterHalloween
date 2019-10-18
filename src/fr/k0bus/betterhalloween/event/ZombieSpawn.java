@@ -28,13 +28,28 @@ public class ZombieSpawn implements Listener{
 			Main.plugin.getServer().broadcastMessage(Main.tag + "Un fragment d'âme d'Herobrine vient d'apparaitre !");
 			this.addHead(e.getEntity(), "Herobrine");
 			Zombie z = (Zombie) e.getEntity();
-			z.setMaxHealth(60);
-			z.setHealth(60);
-			z.setCustomName("Herobrine");
+			z.setMaxHealth(Main.config.getDouble("zombie.health"));
+			z.setHealth(Main.config.getDouble("zombie.health"));
+			z.setCustomName(Main.config.getString("zombie.head-name"));
 			z.setCustomNameVisible(true);
 			z.setCanPickupItems(false);
 			z.isSilent();
-			z.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, -1, 1));
+			if(Main.config.getBoolean("zombie.effect.invisibility.status"))
+			{
+				z.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, Main.config.getInt("zombie.effect.invisibility.value"), true, false));
+			}
+			if(Main.config.getBoolean("zombie.effect.speed.status"))
+			{
+				z.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, Main.config.getInt("zombie.effect.speed.value"), true, false));
+			}
+			if(Main.config.getBoolean("zombie.effect.fire_resistance.status"))
+			{
+				z.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, Integer.MAX_VALUE, Main.config.getInt("zombie.effect.fire_resistance.value"), true, false));
+			}
+			if(Main.config.getBoolean("zombie.effect.damage_resistance.status"))
+			{
+				z.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, Main.config.getInt("zombie.effect.damage_resistance.value"), true, false));
+			}
 			z.setMetadata("herobrine", new FixedMetadataValue(Main.plugin, true));
 		}
 	}

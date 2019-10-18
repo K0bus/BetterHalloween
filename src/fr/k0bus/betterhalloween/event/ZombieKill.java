@@ -1,6 +1,5 @@
 package fr.k0bus.betterhalloween.event;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -27,10 +26,8 @@ public class ZombieKill implements Listener{
     		ItemStack key = new ItemStack(Material.IRON_NUGGET, 1, (byte) 3);
     		ItemMeta keyMeta = key.getItemMeta();
     		keyMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-    		keyMeta.setDisplayName("Clé en fer");
-    		List<String> lore = new ArrayList<String>();
-    		lore.add("Une clé d'Herobrine pour un coffre légendaire !");
-    		lore.add("Rendez vous au spawn pour ouvrir un coffre !");
+    		keyMeta.setDisplayName(Main.config.getString("key.iron.name"));
+    		List<String> lore = Main.config.getStringList("key.iron.lore");
     		keyMeta.setLore(lore);
     		keyMeta.setUnbreakable(true);
     		key.setItemMeta(keyMeta);
