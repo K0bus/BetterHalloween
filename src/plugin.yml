@@ -1,6 +1,6 @@
 name: BetterHalloween
 main: fr.k0bus.betterhalloween.Main
-version: 0.1
+version: 0.2
 api-version: 1.14
 commands:
    bh:
