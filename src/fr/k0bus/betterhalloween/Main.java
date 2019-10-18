@@ -11,6 +11,10 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.k0bus.betterhalloween.event.ZombieSpawn;
+import fr.k0bus.betterhalloween.commands.MainCommand;
+import fr.k0bus.betterhalloween.event.PlayerBreak;
+import fr.k0bus.betterhalloween.event.PlayerBuild;
+import fr.k0bus.betterhalloween.event.PlayerUse;
 import fr.k0bus.betterhalloween.event.ZombieKill;
 
 public class Main extends JavaPlugin{
@@ -31,7 +35,7 @@ public class Main extends JavaPlugin{
 		Main.plugin = this;
 		// Commands
 		this.getLogger().log(Level.INFO, "Loading commands.");
-		
+		this.getCommand("bh").setExecutor(new MainCommand());
 		// Events
 		this.getLogger().log(Level.INFO, "Loading events.");
 		this.registerEvent(this.getServer().getPluginManager());
@@ -46,6 +50,9 @@ public class Main extends JavaPlugin{
 	{
 		pm.registerEvents(new ZombieSpawn(), this);
 		pm.registerEvents(new ZombieKill(), this);
+		pm.registerEvents(new PlayerBuild(), this);
+		pm.registerEvents(new PlayerBreak(), this);
+		pm.registerEvents(new PlayerUse(), this);
 	}
 	
 	private void setDefaultConfig()
@@ -63,14 +70,25 @@ public class Main extends JavaPlugin{
 		Main.config.addDefault("zombie.effect.damage_resistance.value", 1);
 		Main.config.addDefault("zombie.spawn-chance", 10);
 
-		List <String> defaultLore= new ArrayList<String>();
-		defaultLore.add("Une clé d'Herobrine pour un coffre légendaire !");
-		defaultLore.add("Rendez vous au spawn pour ouvrir un coffre !");
+		List <String> defaultKeyLore= new ArrayList<String>();
+		defaultKeyLore.add("Une clé d'Herobrine pour un coffre légendaire !");
+		defaultKeyLore.add("Rendez vous au spawn pour ouvrir un coffre !");
+		List <String> defaultChestLore= new ArrayList<String>();
+		defaultKeyLore.add("Un coffre hanté fermé par un verrou magique !");
+		defaultKeyLore.add("Il semble attirer les fragments d'âme d'HeroBrine !");
 		
 		Main.config.addDefault("key.iron.name", "Clé en fer");
-		Main.config.addDefault("key.iron.lore", defaultLore);
+		Main.config.addDefault("key.iron.lore", defaultKeyLore);
+		Main.config.addDefault("key.iron.chance_ironkey", 5);
+		Main.config.addDefault("key.iron.chance_goldkey", 1);
+		Main.config.addDefault("key.iron.chance_paper", 1);
 		Main.config.addDefault("key.gold.name", "Clé en or");
-		Main.config.addDefault("key.gold.lore", defaultLore);
+		Main.config.addDefault("key.gold.lore", defaultKeyLore);
+		Main.config.addDefault("key.gold.chance_ironkey", 2);
+		Main.config.addDefault("key.gold.chance_goldkey", 0);
+		Main.config.addDefault("key.gold.chance_paper", 3);
+		Main.config.addDefault("chest.name", "Coffre hanté");
+		Main.config.addDefault("chest.lore", defaultChestLore);
 		
 		Main.config.options().copyDefaults(true);
 		this.saveConfig();

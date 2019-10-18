@@ -21,8 +21,61 @@ key:
     lore:
       - "Une clé d'Herobrine pour un coffre légendaire !"
       - "Rendez vous au spawn pour ouvrir un coffre !"
+    chance_ironkey: 5
+    chance_goldkey: 1
+    chance_paper: 1
+    loot:
+      sword:
+        chance: 10
+        count: 1
+        item: "golden_sword"
+        unbreakable: true
+        enchant: 
+          sharpness: 8
+        name: "Epée d'HeroBrine"
+        lore:
+          - "Une épée forgé par l'âme de plusieurs Steve Mort."
+      helmet:
+        chance: 10
+        count: 1
+        item: "golden_helmet"
+        unbreakable: true
+        enchant: 
+          protection: 8
+        name: "Casque d'HeroBrine"
+        lore:
+          - "Un casque forgé par l'âme de plusieurs Steve Mort."
   gold:
     name: "Clé en or"
     lore:
       - "Une clé d'Herobrine pour un coffre légendaire !"
       - "Rendez vous au spawn pour ouvrir un coffre !"
+    chance_ironkey: 2
+    chance_goldkey: 0
+    chance_paper: 3
+    loot:
+      sword:
+        chance: 10
+        count: 1
+        item: "diamond_sword"
+        unbreakable: true
+        enchant: 
+          sharpness: 8
+        name: "Epée d'HeroBrine"
+        lore:
+          - "Une épée forgé par l'âme de plusieurs Steve Mort."
+      helmet:
+        chance: 10
+        count: 1
+        item: "diamond_helmet"
+        unbreakable: true
+        enchant: 
+          protection: 8
+        name: "Casque d'HeroBrine"
+        lore:
+          - "Un casque forgé par l'âme de plusieurs Steve Mort."
+chest:
+  name: "Coffre Hanté"
+  lore:
+    - "Un coffre hanté fermé par un verrou magique !"
+    - "Il semble attirer les fragments d'âme d'HeroBrine !"

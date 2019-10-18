@@ -2,3 +2,12 @@ name: BetterHalloween
 main: fr.k0bus.betterhalloween.Main
 version: 0.1
 api-version: 1.14
+commands:
+   bh:
+      description: Main BetterHalloween plugins command
+      usage: /bh <cmd>
+permissions:
+   bh.give:
+      description: Give BH Items
+   bh.list:
+      description: List BH Items
