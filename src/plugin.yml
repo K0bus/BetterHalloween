@@ -1,6 +1,6 @@
-name: BetterHalloween
+name: ${project.artifactID}
 main: fr.k0bus.betterhalloween.Main
-version: 0.2
+version: ${project.version}
 api-version: 1.14
 commands:
    bh:
