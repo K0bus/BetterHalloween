@@ -34,7 +34,7 @@ public class PlayerUse implements Listener{
 			Block bL = b.getWorld().getBlockAt(new Location(b.getWorld(), b.getX(), b.getY() -1, b.getZ()));
 			Block bU = b.getWorld().getBlockAt(new Location(b.getWorld(), b.getX(), b.getY() +1, b.getZ()));
 			ItemStack i = e.getItem();
-			if(b.getType() == Material.JACK_O_LANTERN && bU.getType() == Material.SKELETON_SKULL && bL.getType() == Material.DIAMOND_BLOCK)
+			if(b.getType() == Material.JACK_O_LANTERN && bU.getType() == Material.SKELETON_SKULL && bL.getType() == Material.DIAMOND_BLOCK && i.getItemMeta() != null)
 			{
 				if(i.getItemMeta().hasEnchant(Enchantment.MENDING))
 				{

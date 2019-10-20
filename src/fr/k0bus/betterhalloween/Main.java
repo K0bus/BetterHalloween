@@ -5,16 +5,22 @@ import java.util.List;
 import java.util.logging.Level;
 
 import org.bukkit.ChatColor;
+import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.k0bus.betterhalloween.event.ZombieSpawn;
+import fr.k0bus.betterhalloween.items.KeyItem;
+import fr.k0bus.betterhalloween.items.KeyType;
 import fr.k0bus.betterhalloween.commands.MainCommand;
 import fr.k0bus.betterhalloween.event.PlayerBreak;
 import fr.k0bus.betterhalloween.event.PlayerBuild;
 import fr.k0bus.betterhalloween.event.PlayerUse;
+import fr.k0bus.betterhalloween.event.PlayerCraft;
 import fr.k0bus.betterhalloween.event.ZombieKill;
 
 public class Main extends JavaPlugin{
@@ -39,6 +45,8 @@ public class Main extends JavaPlugin{
 		// Events
 		this.getLogger().log(Level.INFO, "Loading events.");
 		this.registerEvent(this.getServer().getPluginManager());
+		//Adding recipe
+		this.registerRecipe();
 		this.getLogger().log(Level.INFO, "Loaded successfully.");
 	}
 	@Override
@@ -53,6 +61,16 @@ public class Main extends JavaPlugin{
 		pm.registerEvents(new PlayerBuild(), this);
 		pm.registerEvents(new PlayerBreak(), this);
 		pm.registerEvents(new PlayerUse(), this);
+		pm.registerEvents(new PlayerCraft(), this);
+	}
+	private void registerRecipe()
+	{
+		ItemStack goldKey = new KeyItem(KeyType.GOLD, 1);
+		ItemStack ironKey = new KeyItem(KeyType.IRON, 1);
+	    ShapedRecipe goldKeyRecipe = new ShapedRecipe(new NamespacedKey(this, "goldKey_recipe"), goldKey);
+	    goldKeyRecipe.shape("kkk","kkk","kkk");
+	    goldKeyRecipe.setIngredient('k', ironKey.getData());
+	    this.getServer().addRecipe(goldKeyRecipe);
 	}
 	
 	private void setDefaultConfig()
@@ -71,23 +89,23 @@ public class Main extends JavaPlugin{
 		Main.config.addDefault("zombie.spawn-chance", 10);
 
 		List <String> defaultKeyLore= new ArrayList<String>();
-		defaultKeyLore.add("Une clé d'Herobrine pour un coffre légendaire !");
+		defaultKeyLore.add("Une clï¿½ d'Herobrine pour un coffre lï¿½gendaire !");
 		defaultKeyLore.add("Rendez vous au spawn pour ouvrir un coffre !");
 		List <String> defaultChestLore= new ArrayList<String>();
-		defaultKeyLore.add("Un coffre hanté fermé par un verrou magique !");
-		defaultKeyLore.add("Il semble attirer les fragments d'âme d'HeroBrine !");
+		defaultKeyLore.add("Un coffre hantï¿½ fermï¿½ par un verrou magique !");
+		defaultKeyLore.add("Il semble attirer les fragments d'ï¿½me d'HeroBrine !");
 		
-		Main.config.addDefault("key.iron.name", "Clé en fer");
+		Main.config.addDefault("key.iron.name", "Clï¿½ en fer");
 		Main.config.addDefault("key.iron.lore", defaultKeyLore);
 		Main.config.addDefault("key.iron.chance_ironkey", 5);
 		Main.config.addDefault("key.iron.chance_goldkey", 1);
 		Main.config.addDefault("key.iron.chance_paper", 1);
-		Main.config.addDefault("key.gold.name", "Clé en or");
+		Main.config.addDefault("key.gold.name", "Clï¿½ en or");
 		Main.config.addDefault("key.gold.lore", defaultKeyLore);
 		Main.config.addDefault("key.gold.chance_ironkey", 2);
 		Main.config.addDefault("key.gold.chance_goldkey", 0);
 		Main.config.addDefault("key.gold.chance_paper", 3);
-		Main.config.addDefault("chest.name", "Coffre hanté");
+		Main.config.addDefault("chest.name", "Coffre hantï¿½");
 		Main.config.addDefault("chest.lore", defaultChestLore);
 		
 		Main.config.options().copyDefaults(true);
