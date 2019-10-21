@@ -23,10 +23,10 @@ public class ZombieSpawn implements Listener{
 	{
 		Random rand = new Random();
 		double de = rand.nextInt((int) (Math.floor(100) - Math.floor(0))) + Math.floor(0) + 0.5;
-		if(e.getEntity() instanceof Zombie && de > Main.config.getInt("zombie.chance"));
+		if(e.getEntity() instanceof Zombie && de < Main.config.getInt("zombie.chance") && e.getEntity() != null)
 		{
-			Main.plugin.getServer().broadcastMessage(Main.tag + "Un fragment d'âme d'Herobrine vient d'apparaitre !");
-			this.addHead(e.getEntity(), "Herobrine");
+			Main.plugin.getServer().broadcastMessage(Main.tag + "Un fragment d'âme d'Herobrine vient d'apparaitre !" + Main.config.getInt("zombie.chance") + "/" + de);
+			this.addHead(e.getEntity(), Main.config.getString("zombie.head-name"));
 			Zombie z = (Zombie) e.getEntity();
 			z.setMaxHealth(Main.config.getDouble("zombie.health"));
 			z.setHealth(Main.config.getDouble("zombie.health"));
@@ -60,6 +60,7 @@ public class ZombieSpawn implements Listener{
 		ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1, (byte) 3);
 		SkullMeta sm = (SkullMeta) skull.getItemMeta();
 		sm.setOwner(name);
+		skull.setItemMeta(sm);
 		e.getEquipment().setHelmet(skull);
 	}
 }
