@@ -13,15 +13,17 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.k0bus.betterhalloween.event.ZombieSpawn;
-import fr.k0bus.betterhalloween.items.KeyItem;
-import fr.k0bus.betterhalloween.items.KeyType;
 import fr.k0bus.betterhalloween.commands.MainCommand;
 import fr.k0bus.betterhalloween.event.PlayerBreak;
 import fr.k0bus.betterhalloween.event.PlayerBuild;
-import fr.k0bus.betterhalloween.event.PlayerUse;
 import fr.k0bus.betterhalloween.event.PlayerCraft;
+import fr.k0bus.betterhalloween.event.PlayerUse;
 import fr.k0bus.betterhalloween.event.ZombieKill;
+import fr.k0bus.betterhalloween.event.ZombieSpawn;
+import fr.k0bus.betterhalloween.items.BookItem;
+import fr.k0bus.betterhalloween.items.KeyItem;
+import fr.k0bus.betterhalloween.items.KeyType;
+import fr.k0bus.betterhalloween.items.PaperItem;;
 
 public class Main extends JavaPlugin{
 	
@@ -67,10 +69,16 @@ public class Main extends JavaPlugin{
 	{
 		ItemStack goldKey = new KeyItem(KeyType.GOLD, 1);
 		ItemStack ironKey = new KeyItem(KeyType.IRON, 1);
+		ItemStack paper = new PaperItem(0, 1);
+		ItemStack book = new BookItem(1);
 	    ShapedRecipe goldKeyRecipe = new ShapedRecipe(new NamespacedKey(this, "goldKey_recipe"), goldKey);
 	    goldKeyRecipe.shape("kkk","kkk","kkk");
 	    goldKeyRecipe.setIngredient('k', ironKey.getData());
-	    this.getServer().addRecipe(goldKeyRecipe);
+		this.getServer().addRecipe(goldKeyRecipe);
+		ShapedRecipe bookRecipe = new ShapedRecipe(new NamespacedKey(this, "book_recipe"), book);
+		bookRecipe.shape("xxx", "xxx", "xxx");
+		bookRecipe.setIngredient('x', paper.getData());
+		this.getServer().addRecipe(bookRecipe);
 	}
 	
 	private void setDefaultConfig()
