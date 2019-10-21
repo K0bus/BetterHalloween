@@ -1,6 +1,7 @@
 tag: '&r[&cBetterHalloween&r]'
 zombie:
   head-name: "Herobrine"
+  chance: 10
   health: 60
   effect:
     invisibility:

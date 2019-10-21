@@ -85,6 +85,7 @@ public class Main extends JavaPlugin{
 	{
 		Main.config.addDefault("tag", "&r[&cRandomTP&r]");
 		Main.config.addDefault("zombie.head-name", "Herobrine");
+		Main.config.addDefault("zombie.chance", 10);
 		Main.config.addDefault("zombie.health", 60);
 		Main.config.addDefault("zombie.effect.invisibility.status", true);
 		Main.config.addDefault("zombie.effect.invisibility.value", 1);
