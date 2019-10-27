@@ -80,3 +80,17 @@ chest:
   lore:
     - "Un coffre hanté fermé par un verrou magique !"
     - "Il semble attirer les fragments d'âme d'HeroBrine !"
+book:
+  name: "Livre maculé de sang"
+  lore:
+    - "Un livre maculé de sang !"
+    - "Il reste indéchiffrable ..."
+    - "Peut être qu'un bibliothécaire pourrais nous aider."
+translated_book:
+  name: "Le trésor des morts"
+  lore:
+    - "Un livre contenant le secret du trésor des morts !"
+    - "Traduit par un libraire."
+  pages:
+    - "&cPages 1"
+    - "&4Pages 2"
