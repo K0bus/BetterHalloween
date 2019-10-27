@@ -15,6 +15,7 @@ import fr.k0bus.betterhalloween.commands.MainCommand;
 import fr.k0bus.betterhalloween.event.PlayerBreak;
 import fr.k0bus.betterhalloween.event.PlayerBuild;
 import fr.k0bus.betterhalloween.event.PlayerCraft;
+import fr.k0bus.betterhalloween.event.PlayerMove;
 import fr.k0bus.betterhalloween.event.PlayerUse;
 import fr.k0bus.betterhalloween.event.PlayerUseEntity;
 import fr.k0bus.betterhalloween.event.ZombieKill;
@@ -64,6 +65,7 @@ public class Main extends JavaPlugin{
 		pm.registerEvents(new PlayerUse(), this);
 		pm.registerEvents(new PlayerUseEntity(), this);
 		pm.registerEvents(new PlayerCraft(), this);
+		pm.registerEvents(new PlayerMove(), this);
 	}
 	private void registerRecipe()
 	{
