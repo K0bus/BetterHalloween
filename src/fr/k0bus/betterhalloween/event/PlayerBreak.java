@@ -12,7 +12,7 @@ public class PlayerBreak implements Listener{
     {
 		if(e.getBlock().hasMetadata("herobrine"))
 		{
-			Main.plugin.getServer().broadcastMessage(Main.tag + e.getPlayer().getDisplayName() + " a détruit un coffre hanté !");
+			Main.plugin.getServer().broadcastMessage(Main.tag + e.getPlayer().getDisplayName() + " a dÃ©truit un coffre hantÃ© !");
 		}
     }
 }

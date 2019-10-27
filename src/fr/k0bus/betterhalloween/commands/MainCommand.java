@@ -47,13 +47,13 @@ public class MainCommand implements CommandExecutor{
 										ItemStack item = gl.getItem();
 										item.setAmount(count);
 										p.getInventory().addItem(item);
-										p.sendMessage(Main.tag + count + " " + item.getItemMeta().getDisplayName() + " ajouté à votre inventaire !");
+										p.sendMessage(Main.tag + count + " " + item.getItemMeta().getDisplayName() + " ajoutÃ© Ã  votre inventaire !");
 										return true;
 									}
 									else
 									{
 										p.getInventory().addItem(gl.getItem());
-										p.sendMessage(Main.tag + 1 + " " + gl.getItem().getItemMeta().getDisplayName() + " ajouté à votre inventaire !");
+										p.sendMessage(Main.tag + 1 + " " + gl.getItem().getItemMeta().getDisplayName() + " ajoutÃ© Ã  votre inventaire !");
 										return true;
 									}
 								}
@@ -64,12 +64,12 @@ public class MainCommand implements CommandExecutor{
 							}
 							else
 							{
-								p.sendMessage(Main.tag + ChatColor.RED + "Vous n'êtes pas autorisé à faire cette commande.");
+								p.sendMessage(Main.tag + ChatColor.RED + "Vous n'Ãªtes pas autorisÃ© Ã  faire cette commande.");
 							}
 						}
 						else
 						{
-							p.sendMessage(Main.tag + ChatColor.RED + "Merci de préciser un items. (/bh items)");
+							p.sendMessage(Main.tag + ChatColor.RED + "Merci de prÃ©ciser un items. (/bh items)");
 						}
 						break;
 					default:

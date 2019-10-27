@@ -17,7 +17,7 @@ public class ZombieKill implements Listener{
     	if(e.getEntity().getKiller() instanceof Player && e.getEntity().hasMetadata("herobrine"))
     	{
     		Player p = (Player) e.getEntity().getKiller();
-    		Main.plugin.getServer().broadcastMessage(Main.tag + p.getDisplayName() + " a détruit un fragment d'âme d'Herobrine !");
+    		Main.plugin.getServer().broadcastMessage(Main.tag + p.getDisplayName() + " a dÃ©truit un fragment d'Ã¢me d'Herobrine !");
     		ItemStack key = new KeyItem(KeyType.IRON, 1);
     		e.getDrops().clear();
     		e.getEntity().getWorld().dropItemNaturally(e.getEntity().getLocation(), key);

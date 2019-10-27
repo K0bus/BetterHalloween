@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>BetterHalloween</groupId>
   <artifactId>BetterHalloween</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.4.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>

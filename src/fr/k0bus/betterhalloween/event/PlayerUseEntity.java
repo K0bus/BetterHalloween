@@ -23,7 +23,7 @@ public class PlayerUseEntity implements Listener{
             Player p = e.getPlayer();
             ItemStack hand = p.getInventory().getItemInMainHand();
             if (v.getProfession() == Profession.LIBRARIAN && hand.getType() == Material.BOOK && hand.getItemMeta().hasEnchant(Enchantment.MENDING)){
-                p.sendMessage(Main.tag + "Le libraire vous fournis un exemplaire traduit du livre maculé de sang.");
+                p.sendMessage(Main.tag + "Le libraire vous fournis un exemplaire traduit du livre maculÃ© de sang.");
                 p.getInventory().setItemInMainHand(new TranslatedBookItem());;
                 e.setCancelled(true);
             }

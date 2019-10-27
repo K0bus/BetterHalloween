@@ -22,6 +22,7 @@ import fr.k0bus.betterhalloween.Main;
 import fr.k0bus.betterhalloween.items.KeyItem;
 import fr.k0bus.betterhalloween.items.KeyType;
 import fr.k0bus.betterhalloween.items.Loots;
+import fr.k0bus.betterhalloween.items.PaperItem;
 
 public class PlayerUse implements Listener{
 	@EventHandler(ignoreCancelled = true)
@@ -52,7 +53,7 @@ public class PlayerUse implements Listener{
 					}
 					if(v != null)
 					{
-						p.sendMessage(Main.tag + " Vous avez utilisé une " + Main.config.getString("key."+v+".name") + " sur un " + Main.config.getString("chest.name") + " !");
+						p.sendMessage(Main.tag + " Vous avez utilisÃ© une " + Main.config.getString("key."+v+".name") + " sur un " + Main.config.getString("chest.name") + " !");
 						ItemStack loot = this.getRandomItem(v);
 						if(loot != null)
 						{
@@ -63,7 +64,7 @@ public class PlayerUse implements Listener{
 								name = loot.getItemMeta().getDisplayName();
 							}
 							
-							Main.plugin.getServer().broadcastMessage(Main.tag + p.getDisplayName() + " a gagné " + loot.getAmount() + " " + name + " en ouvrant un " + Main.config.getString("chest.name"));
+							Main.plugin.getServer().broadcastMessage(Main.tag + p.getDisplayName() + " a gagnÃ© " + loot.getAmount() + " " + name + " en ouvrant un " + Main.config.getString("chest.name"));
 						}
 						else
 						{
@@ -102,7 +103,6 @@ public class PlayerUse implements Listener{
 			min = max_rand;
 			max_rand = max_rand+ Main.config.getInt("key." + type + ".loot." + s + ".chance");
 			loots.add(new Loots(min, max_rand, s));
-			Main.plugin.getServer().broadcastMessage("+ " + s + " " + min + "-" + max_rand);
 		}
 		long random = Math.round(Math.random() * max_rand);
 		for(Loots loot : loots)
@@ -149,7 +149,7 @@ public class PlayerUse implements Listener{
 				i = new KeyItem(KeyType.GOLD, 1);
 				break;
 			case "paper":
-				//TODO Make Paper items
+				i = new PaperItem((int) Math.round(Math.random() * (9 - 1)), 1);
 				break;
 			}
 		}

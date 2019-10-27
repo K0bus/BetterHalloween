@@ -25,7 +25,7 @@ public class ZombieSpawn implements Listener{
 		double de = rand.nextInt((int) (Math.floor(100) - Math.floor(0))) + Math.floor(0) + 0.5;
 		if(e.getEntity() instanceof Zombie && de < Main.config.getInt("zombie.chance") && e.getEntity() != null)
 		{
-			Main.plugin.getServer().broadcastMessage(Main.tag + "Un fragment d'âme d'Herobrine vient d'apparaitre !" + Main.config.getInt("zombie.chance") + "/" + de);
+			Main.plugin.getServer().broadcastMessage(Main.tag + "Un fragment d'Ã¢me d'Herobrine vient d'apparaitre !");
 			this.addHead(e.getEntity(), Main.config.getString("zombie.head-name"));
 			Zombie z = (Zombie) e.getEntity();
 			z.setMaxHealth(Main.config.getDouble("zombie.health"));

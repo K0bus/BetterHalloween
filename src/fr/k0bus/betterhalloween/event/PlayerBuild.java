@@ -24,7 +24,7 @@ public class PlayerBuild  implements Listener{
 		
 		if(item.getItemMeta().hasLore() && item.getType() == Material.JACK_O_LANTERN && p.hasPermission("bh.chest.build"))
 		{
-			Main.plugin.getServer().broadcastMessage(Main.tag + p.getDisplayName() + " a posé un coffre hanté !");
+			Main.plugin.getServer().broadcastMessage(Main.tag + p.getDisplayName() + " a posÃ© un coffre hantÃ© !");
 			bU.setType(Material.SKELETON_SKULL);
 			bL.setType(Material.DIAMOND_BLOCK);
 			block.setMetadata("herobrine", new FixedMetadataValue(Main.plugin, true));
